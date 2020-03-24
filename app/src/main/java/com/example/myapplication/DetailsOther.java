@@ -1,4 +1,4 @@
-package com.example.myapplication.Details;
+package com.example.myapplication;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,8 +15,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.myapplication.Main2Activity;
-import com.example.myapplication.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
