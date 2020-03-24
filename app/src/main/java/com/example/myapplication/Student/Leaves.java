@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.Student;
 
 
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Spinner;
+
+import com.example.myapplication.R;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;

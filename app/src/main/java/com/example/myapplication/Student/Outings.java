@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.Student;
 
 
 import android.app.TimePickerDialog;
@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.myapplication.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;

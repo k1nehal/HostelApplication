@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.Student;
 
 
 import android.os.Bundle;
@@ -6,16 +6,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.myapplication.R;
+
 import androidx.fragment.app.Fragment;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class New_Student extends Fragment {
+public class Events extends Fragment {
 
 
-    public New_Student() {
+    public Events() {
         // Required empty public constructor
     }
 
@@ -24,7 +26,7 @@ public class New_Student extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_new__student, container, false);
+        return inflater.inflate(R.layout.fragment_events, container, false);
     }
 
 }

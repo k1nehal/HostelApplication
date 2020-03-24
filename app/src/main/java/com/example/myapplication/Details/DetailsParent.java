@@ -1,9 +1,11 @@
-package com.example.myapplication;
+package com.example.myapplication.Details;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import com.example.myapplication.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
