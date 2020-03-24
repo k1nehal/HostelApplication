@@ -33,16 +33,17 @@ import androidx.fragment.app.Fragment;
  */
 public class Outings extends Fragment
 {
-    EditText purpose,place,time;
-    Calendar calendar;
-    int currentHour;
-    int currentMinute;
-    String amPm;
-    TimePickerDialog timePickerDialog;
-    CardView cardView;
-    SharedPreferences sharedPreferences;
-    FirebaseFirestore firebaseFirestore=FirebaseFirestore.getInstance();
-    FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+    private EditText purpose,place,time;
+    private Calendar calendar;
+    private int currentHour;
+    private int currentMinute;
+    private String amPm;
+    private TimePickerDialog timePickerDialog;
+    private CardView cardView;
+    private SharedPreferences sharedPreferences;
+    private FirebaseFirestore firebaseFirestore=FirebaseFirestore.getInstance();
+    private FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+
     public Outings() {
         // Required empty public constructor
     }
