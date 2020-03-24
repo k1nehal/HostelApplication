@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        >
+        <EditText
+            android:id="@+id/F_Name"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+
+            android:hint="First Name"
+            android:layout_below="@+id/Rl"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:drawableLeft="@drawable/ic_action_email"
+            android:background="@drawable/edittext"
+            android:textSize="20sp"
+            />
+        <EditText
+            android:id="@+id/L_Name"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:hint="Last Name"
+            android:layout_below="@+id/Rl"
+            android:layout_toRightOf="@+id/F_Name"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:ems="10"
+            android:drawableLeft="@drawable/ic_action_email"
+            android:background="@drawable/edittext"
+            android:textSize="18sp"
+            />
+        <EditText
+            android:id="@+id/Bday"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+
+            android:hint="Birthday"
+            android:layout_below="@+id/Mobile"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:clickable="true"
+            android:drawableLeft="@drawable/ic_action_email"
+            android:background="@drawable/edittext"
+            android:textSize="20sp"
+            />
+        <Spinner
+            android:id="@+id/Blood"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/Mobile"
+            android:layout_toRightOf="@id/Bday"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:ems="10"
+            android:drawableLeft="@drawable/ic_action_email"
+            android:background="@drawable/edittext"
+            android:textSize="20sp"
+            >
+
+        </Spinner>
+
+        <EditText
+            android:id="@+id/P_Email"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:hint="Poornima Email"
+            android:layout_below="@+id/F_Name"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:drawableLeft="@drawable/ic_action_email"
+            android:background="@drawable/edittext"
+            android:textSize="20sp"
+            />
+        <EditText
+            android:id="@+id/Mobile"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:hint="Mobile(Self)"
+            android:layout_below="@+id/P_Email"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:inputType="phone"
+
+            android:drawableLeft="@drawable/ic_action_email"
+            android:background="@drawable/edittext"
+            android:textSize="20sp"
+            />
+
+        <EditText
+            android:id="@+id/Height"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:hint="Height"
+            android:layout_below="@+id/Bday"
+            android:layout_marginTop="20dp"
+
+            android:ems="10"
+            android:drawableLeft="@drawable/ic_action_email"
+            android:background="@drawable/edittext"
+            android:textSize="20sp"
+            />
+        <EditText
+            android:id="@+id/Weight"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:hint="Weight"
+            android:layout_below="@+id/Blood"
+            android:layout_toRightOf="@id/Height"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:ems="10"
+            android:drawableLeft="@drawable/ic_action_email"
+            android:background="@drawable/edittext"
+            android:textSize="20sp"
+            />
+
+        <TextView
+            android:id="@+id/Gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Height"
+            android:text="Gender"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"/>
+
+        <RadioGroup
+            android:id="@+id/Gender_RG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Height"
+            android:layout_toRightOf="@+id/Gender"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:orientation="horizontal"
+            >
+
+            <RadioButton
+                android:id="@+id/Male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:textSize="20dp"/>
+
+            <RadioButton
+                android:id="@+id/Female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"       />
+
+        </RadioGroup>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/Next"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/Gender_RG"
+            android:layout_marginTop="25dp"
+            app:cardBackgroundColor="@color/cardbackground"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="10dp"
+            android:layout_alignEnd="@+id/Weight"
+            android:layout_alignRight="@+id/Weight">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/Next1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Next"
+                    android:textColor="@color/white"
+                    android:layout_centerInParent="true"
+                    android:textSize="20sp"
+                    />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+</RelativeLayout>

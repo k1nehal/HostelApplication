@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Complaint">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        >
+
+        <Spinner
+            style="@style/Widget.AppCompat.Spinner.DropDown"
+            android:id="@+id/cat_spinner"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:prompt="@string/app_name"
+            android:layout_below="@+id/Rl"
+            android:background="@drawable/spinner_back"
+            android:layout_centerHorizontal="true"
+            android:spinnerMode="dropdown"
+            />
+
+
+        <Spinner
+            style="@style/Widget.AppCompat.Spinner.DropDown"
+            android:id="@+id/sub_cat_spinner"
+            android:background="@drawable/spinner_back"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:layout_below="@+id/cat_spinner"
+            android:layout_centerHorizontal="true"
+            />
+
+        <EditText
+            android:padding="10dp"
+            android:id="@+id/complain"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:ems="10"
+            android:layout_below="@+id/sub_cat_spinner"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:background="@drawable/edittext"
+            android:hint="Comments"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/Submit"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/complain"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            app:cardBackgroundColor="@color/cardbackground"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="10dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/Sub_Complain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Submit"
+                    android:textColor="@color/white"
+                    android:layout_centerInParent="true"
+                    android:textSize="20dp"
+                    />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+
+
+
+
+
+</FrameLayout>

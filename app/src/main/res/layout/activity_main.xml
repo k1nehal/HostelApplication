@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/white">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/logo" />
+    
+    <EditText
+        android:id="@+id/Email"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/ic_action_email"
+        android:hint="Email"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/edittext"
+        android:textSize="20sp"
+
+
+        />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:hint="Password"
+        android:drawableLeft="@drawable/ic_action_password"
+        android:layout_below="@+id/Email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:background="@drawable/edittext"
+        android:textSize="20sp"
+
+        />
+    <RadioGroup
+        android:id="@+id/category"
+        android:layout_below="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="25dp"
+        android:layout_centerHorizontal="true">
+        <RadioButton
+            android:id="@+id/student_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Student"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_margin="2dp"
+            android:padding="2dp"
+            android:shadowColor="@color/cardbackground"
+            android:buttonTint="@color/cardbackground"
+            />
+        <RadioButton
+            android:id="@+id/warden_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Warden"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_margin="2dp"
+            android:padding="2dp"
+            android:shadowColor="@color/cardbackground"
+            android:buttonTint="@color/cardbackground"/>
+    </RadioGroup>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/category"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        app:cardBackgroundColor="@color/cardbackground"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="10dp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/loginB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:textColor="@color/white"
+                android:layout_centerInParent="true"
+                android:textSize="20dp"
+                />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password"
+        android:id="@+id/forgot"
+        android:clickable="true"
+        android:layout_below="@id/cv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_centerHorizontal="true"
+
+        android:text="Register Here"
+        android:layout_below="@+id/forgot"
+        android:layout_marginTop="25dp"
+        android:textColor="@color/black"
+        android:background="@drawable/textviewbackground"
+        android:padding="6dp"/>
+
+</RelativeLayout>   

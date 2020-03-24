@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Register">
+
+
+
+
+    <ImageView
+        android:padding="10dp"
+        android:id="@+id/user_pic"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/logo"
+        />
+
+
+
+    <EditText
+        android:id="@+id/user_email"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/ic_action_mail"
+        android:hint="Email"
+        android:layout_below="@+id/user_pic"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/edittext"
+        android:textSize="20sp"
+        />
+
+
+    <EditText
+        android:id="@+id/user_pass"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/ic_action_password"
+        android:hint="Password"
+        android:layout_below="@+id/user_email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:background="@drawable/edittext"
+        android:textSize="20sp"
+        />
+    <EditText
+        android:id="@+id/user_con_pass"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/ic_action_password"
+        android:hint="Confirm Password"
+        android:layout_below="@+id/user_pass"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/edittext"
+        android:textSize="20sp"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/user_reg"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/user_con_pass"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        app:cardBackgroundColor="@color/cardbackground"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="10dp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:id="@+id/p_bar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="14dp"
+                android:layout_marginRight="14dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toStartOf="@+id/user_reg1"
+                android:layout_toLeftOf="@+id/user_reg1"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/user_reg1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Register"
+                android:textColor="@color/white"
+                android:layout_centerInParent="true"
+                android:textSize="20sp"
+                />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</RelativeLayout>

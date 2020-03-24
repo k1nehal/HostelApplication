@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        >
+        <EditText
+            android:id="@+id/F_Name"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:hint="Father's Name"
+            android:layout_below="@+id/Rl"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:drawableLeft="@drawable/ic_action_email"
+            android:background="@drawable/edittext"
+            android:textSize="20sp"
+            />
+
+        <EditText
+            android:id="@+id/F_Mobile"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:hint="Father's Mobile"
+            android:layout_below="@+id/F_Name"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:drawableLeft="@drawable/ic_action_email"
+            android:background="@drawable/edittext"
+            android:textSize="20sp"
+            />
+        <EditText
+            android:id="@+id/M_Name"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:hint="Mother's Name"
+            android:layout_below="@+id/F_Mobile"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:drawableLeft="@drawable/ic_action_email"
+            android:background="@drawable/edittext"
+            android:textSize="20sp"
+            />
+        <EditText
+            android:id="@+id/M_Mobile"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:hint="Mother's Mobile"
+            android:layout_below="@+id/M_Name"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:drawableLeft="@drawable/ic_action_email"
+            android:background="@drawable/edittext"
+            android:textSize="20sp"
+            />
+
+        <EditText
+            android:id="@+id/Address"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:hint="Parent's Address"
+            android:layout_below="@+id/M_Mobile"
+            android:inputType="textMultiLine"
+            android:lines="4"
+            android:maxLines="10"
+            android:layout_marginTop="20dp"
+            android:scrollbars="vertical"
+            android:background="@drawable/edittext"
+            android:textSize="20sp"
+            />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/Next"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/Address"
+            android:layout_marginTop="25dp"
+            app:cardBackgroundColor="@color/cardbackground"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="10dp"
+            android:layout_alignEnd="@+id/Address"
+            android:layout_alignRight="@+id/Address">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Next"
+                    android:textColor="@color/white"
+                    android:layout_centerInParent="true"
+                    android:textSize="20sp"
+                    />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</RelativeLayout>

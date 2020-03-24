@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Outings">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        >
+
+
+        <EditText
+            android:id="@+id/Purpose"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:paddingLeft="2dp"
+            android:hint="Purpose"
+            android:layout_below="@+id/Rl"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:drawableLeft="@drawable/ic_action_email"
+            android:background="@drawable/edittext"
+            android:textSize="20sp"
+            />
+
+        <EditText
+            android:id="@+id/Place"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:paddingLeft="2dp"
+            android:hint="Place"
+            android:drawableLeft="@drawable/ic_action_pin"
+            android:layout_below="@+id/Purpose"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:background="@drawable/edittext"
+            android:textSize="20sp"
+            />
+
+        <EditText
+            android:id="@+id/In_Time"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:paddingLeft="2dp"
+            android:hint="In Time"
+            android:layout_below="@+id/Place"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:editable="false"
+            android:background="@drawable/edittext"
+            android:textSize="20sp"
+            android:drawableLeft="@drawable/ic_action_clock"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/Request"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/In_Time"
+            android:layout_centerHorizontal="true"
+
+            android:layout_marginTop="60dp"
+            app:cardBackgroundColor="@color/cardbackground"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="10dp"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/Approval"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Send for Approval"
+                    android:textColor="@color/white"
+                    android:layout_centerInParent="true"
+                    android:textSize="20dp"
+                    />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+
+
+
+
+
+</FrameLayout>

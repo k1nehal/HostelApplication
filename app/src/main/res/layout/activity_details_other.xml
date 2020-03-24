@@ -1,0 +1,168 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        >
+        <Spinner
+            android:id="@+id/School"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:hint="School Of"
+            android:layout_below="@+id/Rl"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:drawableLeft="@drawable/ic_action_email"
+            android:background="@drawable/edittext"
+            android:textSize="20sp"
+            />
+
+        <Spinner
+            android:id="@+id/Year"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/School"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:drawableLeft="@drawable/ic_action_email"
+            android:background="@drawable/edittext"
+            android:textSize="20sp"
+            />
+        <Spinner
+            android:id="@+id/Sem"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:hint="Semester"
+            android:layout_below="@+id/School"
+            android:layout_toRightOf="@+id/Year"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:ems="10"
+            android:drawableLeft="@drawable/ic_action_email"
+            android:background="@drawable/edittext"
+            android:textSize="18sp"
+            />
+        <EditText
+            android:id="@+id/Branch"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:hint="Branch"
+            android:layout_below="@+id/Year"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:drawableLeft="@drawable/ic_action_email"
+            android:background="@drawable/edittext"
+            android:textSize="20sp"
+            />
+
+        <EditText
+            android:id="@+id/Reg_No"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:hint="Reg Number"
+            android:layout_below="@+id/Branch"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:drawableLeft="@drawable/ic_action_email"
+            android:background="@drawable/edittext"
+            android:textSize="20sp"
+            />
+
+        <EditText
+            android:id="@+id/Room"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/Reg_No"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edittext"
+            android:drawableLeft="@drawable/ic_action_email"
+            android:ems="10"
+            android:hint="Room Choice"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/C_D"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Room"
+            android:text="Suffering to any Chronic Illness"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"/>
+
+        <RadioGroup
+            android:id="@+id/Chronic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/C_D"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:orientation="horizontal"
+            >
+
+            <RadioButton
+                android:id="@+id/Yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:textSize="20dp"/>
+
+            <RadioButton
+                android:id="@+id/No"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"       />
+
+        </RadioGroup>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/Submit"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/Chronic"
+            android:layout_marginTop="25dp"
+            app:cardBackgroundColor="@color/cardbackground"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="10dp"
+            android:layout_alignEnd="@+id/Reg_No"
+            android:layout_alignRight="@+id/Reg_No">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ProgressBar
+                    android:id="@+id/p_bar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="14dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_toStartOf="@+id/user_reg1"
+                    android:layout_toLeftOf="@+id/user_reg1"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Submit"
+                    android:textColor="@color/white"
+                    android:layout_centerInParent="true"
+                    android:textSize="20sp"
+                    />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+</RelativeLayout>

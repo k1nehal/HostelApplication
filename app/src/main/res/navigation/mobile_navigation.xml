@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_dash">
+    <fragment
+        android:id="@+id/nav_dash"
+        android:name="com.example.myapplication.StudentDashboardF"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_student_dashboard"/>
+
+
+    <fragment
+        android:id="@+id/nav_send"
+        android:name="com.example.myapplication.ui.send.SendFragment"
+        android:label="@string/menu_send"
+        tools:layout="@layout/fragment_send" />
+</navigation>
