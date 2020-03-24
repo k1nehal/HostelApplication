@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.Details;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+
+import com.example.myapplication.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

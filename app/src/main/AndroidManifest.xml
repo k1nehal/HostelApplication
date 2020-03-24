@@ -13,9 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Registration_Approval"></activity>
-        <activity android:name=".DetailsOther" />
-        <activity android:name=".DetailsParent" />
-        <activity android:name=".DetailsBasic" />
+        <activity android:name=".Details.DetailsOther" />
+        <activity android:name=".Details.DetailsParent" />
+        <activity android:name=".Details.DetailsBasic" />
         <activity
             android:name=".Main2Activity"
             android:label="@string/title_activity_main2"

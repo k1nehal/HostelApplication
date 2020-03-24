@@ -9,7 +9,7 @@ import android.widget.GridView;
 
 public class WardenDashboard extends Activity {
     GridView gridView;
-    String[] itemName={"Complaint","Outings","Leaves","Contacts","Timings","Events"};
+    String[] itemName={"New Student","Round_Records","Leave Request","Outing Request","Complaint Request","New Event"};
     int[]  itemImage={R.drawable.file,R.drawable.gps,R.drawable.pin,R.drawable.avatar,R.drawable.time,R.drawable.calendar};
     @Override
     protected void onCreate(Bundle savedInstanceState) {

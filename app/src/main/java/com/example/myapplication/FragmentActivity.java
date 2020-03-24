@@ -7,6 +7,13 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.Student.Complaint;
+import com.example.myapplication.Student.Contact_Warden;
+import com.example.myapplication.Student.Events;
+import com.example.myapplication.Student.Leaves;
+import com.example.myapplication.Student.Outings;
+import com.example.myapplication.Warden.New_Student;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -52,6 +59,9 @@ TextView textView;
                 break;
             case "Events":
                 fragment=new Events();
+                break;
+            case "New Students":
+                fragment=new New_Student();
                 break;
 
             default:

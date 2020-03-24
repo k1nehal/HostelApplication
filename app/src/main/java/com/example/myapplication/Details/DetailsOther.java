@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.Details;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,6 +15,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.Main2Activity;
+import com.example.myapplication.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -132,7 +134,7 @@ SharedPreferences sharedPreferences;
                             @Override
                             public void onSuccess(Void aVoid) {
                                 Toast.makeText(DetailsOther.this, "Saved", Toast.LENGTH_SHORT).show();
-                                Intent APPROVAL=new Intent(DetailsOther.this,Main2Activity.class);
+                                Intent APPROVAL=new Intent(DetailsOther.this, Main2Activity.class);
                                 startActivity(APPROVAL);
 
                                 SharedPreferences.Editor editor=sharedPreferences.edit();
