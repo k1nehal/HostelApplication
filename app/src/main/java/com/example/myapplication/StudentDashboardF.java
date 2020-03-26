@@ -22,16 +22,13 @@ public class StudentDashboardF extends Fragment {
 
 
     public StudentDashboardF() {
-        // Required empty public constructor
+
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        // Inflate the layout for this fragment
-
         View view=inflater.inflate(R.layout.fragment_student_dashboard, container, false);
         gridView=view.findViewById(R.id.dashgrid);
         StudentDashAdapter adapter=new StudentDashAdapter(getActivity().getApplicationContext(),itemName,itemImage);
@@ -40,30 +37,11 @@ public class StudentDashboardF extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Intent intent=new Intent(getActivity().getApplicationContext(), FragmentActivity.class);
-                intent.putExtra("Item",itemName[position]);
+                Intent intent = new Intent(getActivity().getApplicationContext(), FragmentActivity.class);
+                intent.putExtra("Item", itemName[position]);
                 startActivity(intent);
-               /* String title = itemName[position];
-                Fragment fragment = null;
-                switch (title) {
-                    case "Night Attendance":
-                        fragment = new AttendanceFragment();
-                        break;
-                    case "Complaint":
-                        fragment = new Complaint();
-                        break;
-                    case "Outings":
-                        fragment = new Outings();
-                        break;
-                    default:
-                        Toast.makeText(getActivity().getApplicationContext(), "hello", Toast.LENGTH_SHORT).show();
-                        break;
-                }
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.frame, fragment);
-                fragmentTransaction.commit();*/
-            }
 
+            }
         });
         return view;
     }

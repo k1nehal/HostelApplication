@@ -8,13 +8,17 @@
     <color name="background1">#ffff99</color>
     <color name="white">#fff</color>
     <color name="cardbackground">#0F3573</color>
+    <color name="cardbackground2">#0F0341</color>
     <color name="cardbackground1">#0F7373</color>
     <color name="black">#000</color>
     <color name="lightblue">#B4CDCD</color>
     <color name="darkslategrey">#79cdcd</color>
     <color name="aqua">#66cccc</color>
     <color name="teal">#008080</color>
+    <color name="n">#C2CFFF</color>
     <color name="aliceblue">#F0F8FF</color>
     <color name="transparent">#FFFFFFFF</color>
+    <color name="brencillie">#dae4ee</color>
+
 
 </resources>
