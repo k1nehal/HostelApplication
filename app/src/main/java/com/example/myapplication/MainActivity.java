@@ -13,13 +13,20 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.Warden.New_Student;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends Activity {
@@ -34,7 +41,7 @@ SharedPreferences sharedPreferences;
     public static final String Email="Email";
     public static final String Approved="Approved";
 
-
+    private FirebaseFirestore db=FirebaseFirestore.getInstance();
 
     Intent intent;
     @Override
@@ -60,6 +67,23 @@ SharedPreferences sharedPreferences;
         forgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                db.collection("Rooms")
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful())
+                                {
+                                    List<DocumentSnapshot> snapshots = task.getResult().getDocuments();
+                                    New_Student.roomsList = new ArrayList<>();
+                                    for (DocumentSnapshot snapshot:snapshots)
+                                    {
+                                        Room_LIst_Item  item = snapshot.toObject(Room_LIst_Item.class);
+                                        New_Student.roomsList.add(item);
+                                    }
+                                }
+                            }
+                        });
                 Intent intent1=new Intent(MainActivity.this,WardenDashboard.class);
                 startActivity(intent1);
             }

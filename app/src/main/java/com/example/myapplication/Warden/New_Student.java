@@ -10,6 +10,7 @@ import android.widget.GridView;
 
 import com.example.myapplication.New_Student_Adapter;
 import com.example.myapplication.R;
+import com.example.myapplication.Room_LIst_Item;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -33,7 +34,7 @@ ArrayList<String> Branch=new ArrayList<>();
 ArrayList<String> Year = new ArrayList<>();
 ArrayList<String> Category=new ArrayList<>();
 ArrayList<String> Seater=new ArrayList<>();
-
+public static ArrayList<Room_LIst_Item> roomsList;
 
     private FirebaseFirestore db=FirebaseFirestore.getInstance();
     GridView gridView;
@@ -62,7 +63,7 @@ ArrayList<String> Seater=new ArrayList<>();
                                 Log.d("item",Name.toString()+Branch.toString()+Year.toString()+Category.toString()+Seater.toString());
                                 /*Log.d("Item",document.getId()+document.getData());
                                 Log.d("______","______");*/
-                                New_Student_Adapter adapter=new New_Student_Adapter(getActivity().getApplicationContext(),Name,Branch,Year,Category,Seater);
+                                New_Student_Adapter adapter=new New_Student_Adapter(getActivity().getApplicationContext(),Name,Branch,Year,Category,Seater, roomsList);
                                 gridView.setAdapter(adapter);
                             }
                         } else {
