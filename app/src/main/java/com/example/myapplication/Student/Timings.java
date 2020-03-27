@@ -48,17 +48,11 @@ public class Timings extends Fragment {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-//                                Log.d("Item",document.getId()+document.getData());
-//                                textView.setText(document.getId() + document.getData());
-//                                String MTinings=document.getString("Time");
                                 timings.add(document.getString("Time"));
                                 duration.add(document.getString("Duration"));
                                 name.add(document.getString("Name"));
                                 TimingAdapter adapter=new TimingAdapter(getActivity().getApplicationContext(),name,timings,duration);
                                 gridView.setAdapter(adapter);
-
-//                                Log.d("_________"," ____");
-//                                Log.d("List: ",timings.toString()+duration.toString());
                             }
                         } else {
                             Log.d(TAG, "Error getting documents: ", task.getException());
