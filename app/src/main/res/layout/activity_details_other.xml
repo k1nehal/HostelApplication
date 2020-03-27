@@ -2,14 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
-
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        >
+        android:gravity="center">
         <Spinner
             android:id="@+id/School"
             android:layout_width="320dp"
@@ -19,10 +16,8 @@
             android:layout_marginTop="20dp"
             android:ems="10"
             android:drawableLeft="@drawable/ic_action_email"
-            android:background="@drawable/edittext"
-            android:textSize="20sp"
-            />
-
+            android:background="@drawable/spinner_back"
+            android:textSize="15sp"/>
         <Spinner
             android:id="@+id/Year"
             android:layout_width="150dp"
@@ -31,9 +26,8 @@
             android:layout_marginTop="20dp"
             android:ems="10"
             android:drawableLeft="@drawable/ic_action_email"
-            android:background="@drawable/edittext"
-            android:textSize="20sp"
-            />
+            android:background="@drawable/spinner_back"
+            android:textSize="15sp" />
         <Spinner
             android:id="@+id/Sem"
             android:layout_width="150dp"
@@ -45,9 +39,8 @@
             android:layout_marginLeft="20dp"
             android:ems="10"
             android:drawableLeft="@drawable/ic_action_email"
-            android:background="@drawable/edittext"
-            android:textSize="18sp"
-            />
+            android:background="@drawable/spinner_back"
+            android:textSize="15sp"/>
         <EditText
             android:id="@+id/Branch"
             android:layout_width="320dp"
@@ -58,9 +51,8 @@
             android:ems="10"
             android:drawableLeft="@drawable/ic_action_email"
             android:background="@drawable/edittext"
-            android:textSize="20sp"
+            android:textSize="15sp"
             />
-
         <EditText
             android:id="@+id/Reg_No"
             android:layout_width="320dp"
@@ -71,26 +63,37 @@
             android:ems="10"
             android:drawableLeft="@drawable/ic_action_email"
             android:background="@drawable/edittext"
-            android:textSize="20sp"
+            android:textSize="15sp"
             />
-
-        <EditText
+        <Spinner
             android:id="@+id/Room"
             android:layout_width="320dp"
             android:layout_height="40dp"
             android:layout_below="@+id/Reg_No"
             android:layout_marginTop="20dp"
-            android:background="@drawable/edittext"
+            android:background="@drawable/spinner_back"
             android:drawableLeft="@drawable/ic_action_email"
             android:ems="10"
             android:hint="Room Choice"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
+
+        <Spinner
+            android:id="@+id/Room1"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/Room"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/spinner_back"
+            android:drawableLeft="@drawable/ic_action_email"
+            android:ems="10"
+            android:hint="Room Choice"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/C_D"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/Room"
+            android:layout_below="@+id/Room1"
             android:text="Suffering to any Chronic Illness"
             android:textSize="18sp"
             android:layout_marginTop="20dp"/>
@@ -150,7 +153,6 @@
                     android:layout_toStartOf="@+id/user_reg1"
                     android:layout_toLeftOf="@+id/user_reg1"
                     android:visibility="gone"/>
-
                 <TextView
                     android:id="@+id/textview"
                     android:layout_width="wrap_content"
@@ -161,8 +163,6 @@
                     android:textSize="20sp"
                     />
             </RelativeLayout>
-
         </androidx.cardview.widget.CardView>
-
     </RelativeLayout>
 </RelativeLayout>

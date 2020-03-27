@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -26,14 +25,13 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 
 public class DetailsOther extends Activity {
-Spinner school,year,semester;
-EditText branch,reg_no,roomchoice;
+Spinner school,year,semester,room_cat,room_seater;
+EditText branch,reg_no;
 CardView submit;
 RadioGroup chronicg;
-//RadioButton chronicb;
 ProgressBar progressBar;
 TextView textView;
-String sschool,syear,ssemester,sbranch,sreg_no,schroinc,iroom;
+String sschool,syear,ssemester,sbranch,sreg_no,schroinc,room_c,room_s;
 private FirebaseFirestore firebaseFirestore=FirebaseFirestore.getInstance();
 SharedPreferences sharedPreferences;
 
@@ -50,31 +48,12 @@ SharedPreferences sharedPreferences;
         chronicg=findViewById(R.id.Chronic);
         progressBar=findViewById(R.id.p_bar);
         textView=findViewById(R.id.textview);
-        roomchoice=findViewById(R.id.Room);
+        room_cat=findViewById(R.id.Room);
+        room_seater=findViewById(R.id.Room1);
+
 
         sharedPreferences=getSharedPreferences("MyHostel",MODE_PRIVATE);
         final String shared_email=sharedPreferences.getString("Email", "");
-
-
-        year.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedItem=parent.getSelectedItem().toString();
-                if(selectedItem.equals("I"))
-                {
-                    roomchoice.setEnabled(false);
-                }
-                else
-                {
-                    roomchoice.setEnabled(true);
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
         ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(this, R.array.Year, R.layout.support_simple_spinner_dropdown_item);
         year.setAdapter(arrayAdapter);
@@ -82,6 +61,11 @@ SharedPreferences sharedPreferences;
         school.setAdapter(arrayAdapter1);
         ArrayAdapter<CharSequence> arrayAdapter2 = ArrayAdapter.createFromResource(this, R.array.Sem, R.layout.support_simple_spinner_dropdown_item);
         semester.setAdapter(arrayAdapter2);
+        ArrayAdapter<CharSequence> arrayAdapter3 = ArrayAdapter.createFromResource(this, R.array.Room_Category, R.layout.support_simple_spinner_dropdown_item);
+        room_cat.setAdapter(arrayAdapter3);
+        ArrayAdapter<CharSequence> arrayAdapter4 = ArrayAdapter.createFromResource(this, R.array.Seater, R.layout.support_simple_spinner_dropdown_item);
+        room_seater.setAdapter(arrayAdapter4);
+
 
         final Intent intent=getIntent();
         final DetailsBook detailsBook= intent.getParcelableExtra("Book");
@@ -97,37 +81,35 @@ SharedPreferences sharedPreferences;
                 ssemester=semester.getSelectedItem().toString();
                 sbranch=branch.getText().toString();
                 sreg_no=reg_no.getText().toString();
-                iroom=roomchoice.getText().toString();
-
+                room_c=room_cat.getSelectedItem().toString();
+                room_s=room_seater.getSelectedItem().toString();
                 schroinc =((RadioButton)findViewById(chronicg.getCheckedRadioButtonId())).getText().toString();
 
                 Map<String,Object> note=new HashMap<>();
-                note.put("FirstName",detailsBook.getFname());
-                note.put("LastName",detailsBook.getLname());
-                note.put("PEmail",detailsBook.getPemail());
-                note.put("BloodGroup",detailsBook.getBloodGroup());
+                note.put("First Name",detailsBook.getFname());
+                note.put("Last Name",detailsBook.getLname());
+                note.put("Poornima Email",detailsBook.getPemail());
+                note.put("Blood Group",detailsBook.getBloodGroup());
                 note.put("Mobile",detailsBook.getMobile());
                 note.put("Height",detailsBook.getHeight());
                 note.put("Weight",detailsBook.getWeight());
                 note.put("Gender",detailsBook.getGender());
-                note.put("Bday",detailsBook.getBday());
-
-                note.put("MotherName",detailsBook2.getMother());
-                note.put("FatherName",detailsBook2.getFather());
-                note.put("MMobile",detailsBook2.getMmob());
-                note.put("FMobile",detailsBook2.getFmob());
-
+                note.put("Birthday",detailsBook.getBday());
+                note.put("Mother Name",detailsBook2.getMother());
+                note.put("Father Name",detailsBook2.getFather());
+                note.put("Mother's Mobile",detailsBook2.getMmob());
+                note.put("Father's Mobile",detailsBook2.getFmob());
                 note.put("School",sschool);
                 note.put("Year",syear);
                 note.put("Semester",ssemester);
                 note.put("Branch",sbranch);
-                note.put("Reg_no",sreg_no);
-                note.put("Chronic",schroinc);
-                note.put("Room Choice",iroom);
-                note.put("approved",0);
-//                note.put("Personal_Email",shared_email);
-
-                firebaseFirestore.collection("Students").document(shared_email).set(note)
+                note.put("Registration No.",sreg_no);
+                note.put("Chronic Disease",schroinc);
+                note.put("Room Category",room_c);
+                note.put("Seater",room_s);
+                note.put("Approved",0);
+                note.put("Personal Email",shared_email);
+                firebaseFirestore.collection("Students").document().set(note)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {

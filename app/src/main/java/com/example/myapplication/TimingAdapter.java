@@ -49,7 +49,7 @@ public class TimingAdapter extends BaseAdapter {
         }
         if(convertView==null)
         {
-            convertView=layoutInflater.inflate(R.layout.timing_item,null);
+            convertView=layoutInflater.inflate(R.layout.item_timing,null);
         }
 
         TextView textView =convertView.findViewById(R.id.Name);

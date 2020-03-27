@@ -30,6 +30,7 @@
     </string-array>
 
     <string-array name="Blood_Group">
+        <item>Blood Group</item>
         <item>A+ve</item>
         <item>O+ve</item>
         <item>B+ve</item>
@@ -73,6 +74,19 @@
         <item>VIII</item>
         <item>IX</item>
         <item>X</item>
+    </string-array>
+
+    <string-array name="Room_Category">
+        <item>Room Category</item>
+        <item>Fan</item>
+        <item>Duct</item>
+        <item>AC</item>
+    </string-array>
+
+    <string-array name="Seater">
+        <item>Room Beds</item>
+        <item>Single Bed</item>
+        <item>Double Bed</item>
     </string-array>
     <string name="title_activity_navigation__bar">Navigation_Bar</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>

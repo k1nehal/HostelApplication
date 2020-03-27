@@ -48,7 +48,7 @@ class ContactAdapter extends BaseAdapter {
         }
         if(convertView==null)
         {
-            convertView=layoutInflater.inflate(R.layout.contact_grid,null);
+            convertView=layoutInflater.inflate(R.layout.item_contact,null);
         }
 
         TextView textView =convertView.findViewById(R.id.Name);
