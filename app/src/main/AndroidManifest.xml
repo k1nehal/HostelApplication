@@ -12,7 +12,6 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Registration_Approval"></activity>
         <activity android:name=".DetailsOther" />
         <activity android:name=".DetailsParent" />
         <activity android:name=".DetailsBasic" />

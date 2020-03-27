@@ -82,6 +82,13 @@
         <item>Duct</item>
         <item>AC</item>
     </string-array>
+    
+    <string-array name="Round">
+        <item>Rounds</item>
+        <item>Morning</item>
+        <item>Afternoon</item>
+        <item>Evening</item>
+    </string-array>
 
     <string-array name="Seater">
         <item>Room Beds</item>

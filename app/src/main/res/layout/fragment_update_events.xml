@@ -1,14 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Warden.UpdateEvents">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Warden.UpdateEvents"
+    android:gravity="center">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <EditText
+        android:id="@+id/EName"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:hint="Event Name"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:maxLines="1"
+        android:drawableLeft="@drawable/ic_action_email"
+        android:background="@drawable/edittext"
+        android:textSize="15sp"
+        />
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/Date"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:hint="Date"
+        android:layout_below="@+id/EName"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:editable="false"
+        android:clickable="true"
+        android:drawableLeft="@drawable/ic_action_email"
+        android:background="@drawable/edittext"
+        android:textSize="15sp"
+        />
+
+    <EditText
+        android:id="@+id/Time"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:hint="Time"
+        android:layout_below="@+id/EName"
+        android:layout_toRightOf="@id/Date"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:ems="10"
+        android:editable="false"
+        android:drawableLeft="@drawable/ic_action_email"
+        android:background="@drawable/edittext"
+        android:textSize="15sp"
+        />
+
+    <EditText
+        android:id="@+id/CName"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:hint="Coordinator"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:layout_below="@+id/Date"
+        android:inputType="text"
+        android:maxLines="1"
+        android:drawableLeft="@drawable/ic_action_email"
+        android:background="@drawable/edittext"
+        android:textSize="15sp"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/Update"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/CNumber"
+        android:layout_marginTop="60dp"
+        app:cardBackgroundColor="@color/cardbackground"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="10dp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/Approval"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Update Event"
+                android:textColor="@color/white"
+                android:layout_centerInParent="true"
+                android:textSize="20dp"
+                />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>    <EditText
+        android:id="@+id/CNumber"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:hint="Coordinator Number"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:layout_below="@+id/CName"
+        android:maxLines="1"
+        android:inputType="text"
+        android:drawableLeft="@drawable/ic_action_email"
+        android:background="@drawable/edittext"
+        android:textSize="15sp"
+        />
+
+</RelativeLayout>

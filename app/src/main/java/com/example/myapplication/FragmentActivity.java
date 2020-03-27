@@ -14,6 +14,8 @@ import com.example.myapplication.Student.Leaves;
 import com.example.myapplication.Student.Outings;
 import com.example.myapplication.Student.Timings;
 import com.example.myapplication.Warden.New_Student;
+import com.example.myapplication.Warden.Rounds;
+import com.example.myapplication.Warden.UpdateEvents;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -64,7 +66,12 @@ TextView textView;
             case "New Students":
                 fragment=new New_Student();
                 break;
-
+            case "Round Records":
+                fragment=new Rounds();
+                break;
+            case "New Event":
+                fragment=new UpdateEvents();
+                break;
             default:
                 startActivity(new Intent(getApplicationContext(),Main2Activity.class));
                 Toast.makeText(this,"Please select valid option",Toast.LENGTH_SHORT).show();

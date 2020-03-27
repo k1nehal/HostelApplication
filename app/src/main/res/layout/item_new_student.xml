@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
                 android:text="Category"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textColor="@color/black"/>
 
             <TextView
@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
                 android:text="Seater"
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textColor="@color/black"
                 />
 
@@ -76,14 +76,17 @@
                 android:id="@+id/rooms"
                 android:layout_margin="2dp"
                 android:background="@drawable/spinner_back"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"/>
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                />
 
             <Button
                 android:id="@+id/Approve"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Approve"/>
+                android:text="Approve"
+                />
 
         </LinearLayout>
 

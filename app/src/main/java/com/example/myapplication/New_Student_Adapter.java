@@ -1,7 +1,6 @@
 package com.example.myapplication;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -77,7 +75,7 @@ public class New_Student_Adapter extends BaseAdapter {
         textView3.setText(Category.get(position));
         textView4.setText(Seater.get(position));
 
-        ArrayList<String> rooms = new ArrayList<>();
+        final ArrayList<String> rooms = new ArrayList<>();
         rooms.add("Select Rooms");
 
         if (Category.get(position).equals("Fan"))
@@ -168,7 +166,7 @@ public class New_Student_Adapter extends BaseAdapter {
             }
         }
 
-        Spinner spinner = convertView.findViewById(R.id.rooms);
+        final Spinner spinner = convertView.findViewById(R.id.rooms);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, R.layout.room_spinner_layout, rooms);
         spinner.setAdapter(adapter);
 
@@ -188,6 +186,8 @@ public class New_Student_Adapter extends BaseAdapter {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*rooms.remove(spinner.getSelectedItem());*/
+
 //                Intent intent=new Intent(v.getContext(),Approve.class);
 //                intent.putExtra("Name",Name.get(position));
 //                intent.putExtra("Category",Category.get(position));
