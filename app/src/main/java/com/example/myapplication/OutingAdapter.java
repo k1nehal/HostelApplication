@@ -29,7 +29,7 @@ public class OutingAdapter extends BaseAdapter {
     FirebaseFirestore db=FirebaseFirestore.getInstance();
 
     public OutingAdapter(View v,Context context, ArrayList<String> name, ArrayList<String> place, ArrayList<String> purpose, ArrayList<String> inTime, ArrayList<String> id, ArrayList<Outing_List_Item> arrayList) {
-        vw=v;
+        vw = v;
         this.context = context;
         Name = name;
         Place = place;
@@ -57,7 +57,6 @@ public class OutingAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 //        View v=convertView;
-          View v=convertView;
         if(layoutInflater==null)
         {
             layoutInflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);

@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.Warden.New_Student;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
@@ -25,10 +28,13 @@ public class New_Student_Adapter extends BaseAdapter {
     private ArrayList<String> Year;
     private ArrayList<String> Category;
     private ArrayList<String> Seater;
+    private ArrayList<String> docId;
     private ArrayList<Room_LIst_Item> roomsList;
     private View vw;
 
-    public New_Student_Adapter(View v, Context context, ArrayList<String> name, ArrayList<String> branch, ArrayList<String> year, ArrayList<String> category, ArrayList<String> seater, ArrayList<Room_LIst_Item> roomsList) {
+    private FirebaseFirestore db=FirebaseFirestore.getInstance();
+
+    public New_Student_Adapter(View v, Context context, ArrayList<String> name, ArrayList<String> branch, ArrayList<String> year, ArrayList<String> category, ArrayList<String> seater, ArrayList<String> docId, ArrayList<Room_LIst_Item> roomsList) {
         vw = v;
         this.context = context;
         Name = name;
@@ -36,6 +42,7 @@ public class New_Student_Adapter extends BaseAdapter {
         Year = year;
         Category = category;
         Seater = seater;
+        this.docId = docId;
         this.roomsList = roomsList;
     }
 
@@ -209,7 +216,29 @@ public class New_Student_Adapter extends BaseAdapter {
                     //roomsList.remove(spinnerItem[0]);
                     //roomsList.add(spinnerItem[0], room_lIst_item);
                     roomsList.set(spinnerItem[0]-1, room_lIst_item);
-                    New_Student.setGridViewAdapter(vw,context,Name, Branch, Year, Category, Seater, roomsList);
+
+                    db.collection("Rooms")
+                            .document(spinner.getSelectedItem().toString())
+                            .update("Alloted", room_lIst_item.getAlloted())
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.d("Room Detail", "Room Detail updated");
+                                }
+                            });
+
+
+                    db.collection("Students")
+                            .document(docId.get(position))
+                            .update("Approved", 1)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.d("Student Detail", "Student Approved Successful");
+                                    New_Student.setGridViewAdapter(vw,context,Name, Branch, Year, Category, Seater, docId,roomsList);
+                                }
+                            });
+
 
 
                 }
