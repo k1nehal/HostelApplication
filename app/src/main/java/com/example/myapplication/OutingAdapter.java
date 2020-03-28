@@ -27,8 +27,9 @@ public class OutingAdapter extends BaseAdapter {
     private View vw;
 
     FirebaseFirestore db=FirebaseFirestore.getInstance();
+
     public OutingAdapter(View v,Context context, ArrayList<String> name, ArrayList<String> place, ArrayList<String> purpose, ArrayList<String> inTime, ArrayList<String> id, ArrayList<Outing_List_Item> arrayList) {
-        this.vw=v;
+        vw=v;
         this.context = context;
         Name = name;
         Place = place;
@@ -56,7 +57,7 @@ public class OutingAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 //        View v=convertView;
-        vw=convertView;
+          View v=convertView;
         if(layoutInflater==null)
         {
             layoutInflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -85,6 +86,9 @@ public class OutingAdapter extends BaseAdapter {
                 documentReference.update("Status",1);
                 Name.remove(position);
                 Place.remove(position);
+                Purpose.remove(position);
+                InTime.remove(position);
+                ID.remove(position);
                 OutingRequest.UpdateRequests(vw,context,Name,Place,Purpose,InTime,ID,arrayList);
             }
         });

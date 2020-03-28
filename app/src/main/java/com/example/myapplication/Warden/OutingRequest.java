@@ -79,11 +79,11 @@ FirebaseAuth fb=FirebaseAuth.getInstance();
 
     }
 
-    public static void UpdateRequests(View v, Context context, ArrayList<String> name, ArrayList<String> purpose, ArrayList<String> place, ArrayList<String> In_Time, ArrayList<String> id,ArrayList<Outing_List_Item> arrayList)
+    public static void UpdateRequests(View view, Context context, ArrayList<String> name, ArrayList<String> purpose, ArrayList<String> place, ArrayList<String> In_Time, ArrayList<String> id,ArrayList<Outing_List_Item> arrayList)
     {
-        GridView gV = v.findViewById(R.id.dashgrid);
+        GridView gV = view.findViewById(R.id.dashgrid);
 
-         OutingAdapter adapter = new OutingAdapter(v, context, name, purpose,place,In_Time,id,arrayList);
+        OutingAdapter adapter = new OutingAdapter(view, context, name, purpose,place,In_Time,id,arrayList);
         gV.setAdapter(adapter);
 
     }
