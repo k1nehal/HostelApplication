@@ -197,13 +197,13 @@ public class New_Student_Adapter extends BaseAdapter {
             public void onClick(View v) {
                 int a;
                 //rooms.get(spinnerItem[0]);
-                Name.remove(position);
-                Branch.remove(position);
-                Year.remove(position);
-                Category.remove(position);
-                Seater.remove(position);
                 if (spinnerItem[0] != 0)
                 {
+                    Name.remove(position);
+                    Branch.remove(position);
+                    Year.remove(position);
+                    Category.remove(position);
+                    Seater.remove(position);
                     Room_LIst_Item room_lIst_item = roomsList.get(spinnerItem[0]-1);
                     room_lIst_item.setAlloted(room_lIst_item.getAlloted()+1);
                     //roomsList.remove(spinnerItem[0]);
