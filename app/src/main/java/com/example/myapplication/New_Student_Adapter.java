@@ -157,10 +157,7 @@ public class New_Student_Adapter extends BaseAdapter {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position != 0)
-                {
-                    spinnerItem[0] = position;
-                }
+                spinnerItem[0] = position;
             }
 
             @Override
@@ -181,21 +178,32 @@ public class New_Student_Adapter extends BaseAdapter {
                     Year.remove(position);
                     Category.remove(position);
                     Seater.remove(position);
-                    Room_LIst_Item room_lIst_item = roomsList.get(spinnerItem[0]-1);
-                    room_lIst_item.setAlloted(room_lIst_item.getAlloted()+1);
+
+                    int pos=0;
+
+                    for (Room_LIst_Item rooms:roomsList) {
+                        if (rooms.getRoom_No().equals(spinner.getSelectedItem()))
+                        {
+                            rooms.setAlloted(rooms.getAlloted()+1);
+                            roomsList.set(pos, rooms);
+                            db.collection("Rooms")
+                                    .document(spinner.getSelectedItem().toString())
+                                    .update("Alloted", rooms.getAlloted())
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            Log.d("Room Detail", "Room Detail updated");
+                                        }
+                                    });
+                        }
+                        pos++;
+                    }
+
                     //roomsList.remove(spinnerItem[0]);
                     //roomsList.add(spinnerItem[0], room_lIst_item);
-                    roomsList.set(spinnerItem[0]-1, room_lIst_item);
 
-                    db.collection("Rooms")
-                            .document(spinner.getSelectedItem().toString())
-                            .update("Alloted", room_lIst_item.getAlloted())
-                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    Log.d("Room Detail", "Room Detail updated");
-                                }
-                            });
+                    
+
 
                     db.collection("Students")
                             .document(docId.get(position))
@@ -205,6 +213,7 @@ public class New_Student_Adapter extends BaseAdapter {
                                 public void onSuccess(Void aVoid) {
                                     Log.d("Student Detail", "Student Approved Successful");
                                     New_Student.setGridViewAdapter(vw,context,Name, Branch, Year, Category, Seater, docId,roomsList);
+                                    docId.remove(position);
                                 }
                             });
 
