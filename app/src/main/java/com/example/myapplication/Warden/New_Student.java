@@ -30,12 +30,14 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
  * A simple {@link Fragment} subclass.
  */
 public class New_Student extends Fragment {
-ArrayList<String> Name=new ArrayList<>();
-ArrayList<String> Branch=new ArrayList<>();
-ArrayList<String> Year = new ArrayList<>();
-ArrayList<String> Category=new ArrayList<>();
-ArrayList<String> Seater=new ArrayList<>();
-public static ArrayList<Room_LIst_Item> roomsList;
+
+    private ArrayList<String> Name=new ArrayList<>();
+    private ArrayList<String> Branch=new ArrayList<>();
+    private ArrayList<String> Year = new ArrayList<>();
+    private ArrayList<String> Category=new ArrayList<>();
+    private ArrayList<String> Seater=new ArrayList<>();
+    private ArrayList<String> docId = new ArrayList<>();
+    public static ArrayList<Room_LIst_Item> roomsList;
 
     private FirebaseFirestore db=FirebaseFirestore.getInstance();
     private GridView gridView;
@@ -62,7 +64,8 @@ public static ArrayList<Room_LIst_Item> roomsList;
                                 Year.add(document.getString("Year"));
                                 Category.add(document.getString("Room Category"));
                                 Seater.add(document.getString("Seater"));
-                                New_Student_Adapter adapter=new New_Student_Adapter(v,getActivity().getApplicationContext(),Name,Branch,Year,Category,Seater, roomsList);
+                                docId.add(document.getId());
+                                New_Student_Adapter adapter=new New_Student_Adapter(v,getActivity().getApplicationContext(),Name,Branch,Year,Category,Seater, docId,roomsList);
                                 gridView.setAdapter(adapter);
                             }
                         } else {
@@ -73,11 +76,11 @@ public static ArrayList<Room_LIst_Item> roomsList;
         return v;
     }
 
-    public static void setGridViewAdapter(View v, Context context, ArrayList<String> name, ArrayList<String> branch, ArrayList<String> year, ArrayList<String> category, ArrayList<String> seater, ArrayList<Room_LIst_Item> roomsList)
+    public static void setGridViewAdapter(View v, Context context, ArrayList<String> name, ArrayList<String> branch, ArrayList<String> year, ArrayList<String> category, ArrayList<String> seater, ArrayList<String> docId, ArrayList<Room_LIst_Item> roomsList)
     {
         GridView gV = v.findViewById(R.id.dashgrid);
 
-        New_Student_Adapter adapter = new New_Student_Adapter(v, context, name, branch, year, category, seater, roomsList);
+        New_Student_Adapter adapter = new New_Student_Adapter(v, context, name, branch, year, category, seater, docId, roomsList);
         gV.setAdapter(adapter);
 
     }

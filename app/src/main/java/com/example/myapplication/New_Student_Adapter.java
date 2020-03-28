@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.Warden.New_Student;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
@@ -25,10 +28,13 @@ public class New_Student_Adapter extends BaseAdapter {
     private ArrayList<String> Year;
     private ArrayList<String> Category;
     private ArrayList<String> Seater;
+    private ArrayList<String> docId;
     private ArrayList<Room_LIst_Item> roomsList;
     private View vw;
 
-    public New_Student_Adapter(View v, Context context, ArrayList<String> name, ArrayList<String> branch, ArrayList<String> year, ArrayList<String> category, ArrayList<String> seater, ArrayList<Room_LIst_Item> roomsList) {
+    private FirebaseFirestore db=FirebaseFirestore.getInstance();
+
+    public New_Student_Adapter(View v, Context context, ArrayList<String> name, ArrayList<String> branch, ArrayList<String> year, ArrayList<String> category, ArrayList<String> seater, ArrayList<String> docId, ArrayList<Room_LIst_Item> roomsList) {
         vw = v;
         this.context = context;
         Name = name;
@@ -36,6 +42,7 @@ public class New_Student_Adapter extends BaseAdapter {
         Year = year;
         Category = category;
         Seater = seater;
+        this.docId = docId;
         this.roomsList = roomsList;
     }
 
@@ -56,7 +63,6 @@ public class New_Student_Adapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        View v=convertView;
 
 
         if(layoutInflater==null)
@@ -83,92 +89,64 @@ public class New_Student_Adapter extends BaseAdapter {
         final ArrayList<String> rooms = new ArrayList<>();
         rooms.add("Select Rooms");
 
-        if (Category.get(position).equals("Fan"))
-        {
-            if (Seater.get(position).equals("Single Bed"))
-            {
-                for (Room_LIst_Item item:roomsList)
-                {
-                    if (item.getCategory().equals("Fan"))
-                    {
-                        if (item.getAlloted() != item.getSeater() && item.getSeater() == 1)
-                        {
-                            rooms.add(item.getRoom_No());
+        switch (Category.get(position)) {
+            case "Fan":
+                if (Seater.get(position).equals("Single Bed")) {
+                    for (Room_LIst_Item item : roomsList) {
+                        if (item.getCategory().equals("Fan")) {
+                            if (item.getAlloted() != item.getSeater() && item.getSeater() == 1) {
+                                rooms.add(item.getRoom_No());
+                            }
+                        }
+                    }
+                } else if (Seater.get(position).equals("Double Bed")) {
+                    for (Room_LIst_Item item : roomsList) {
+                        if (item.getCategory().equals("Fan")) {
+                            if (item.getAlloted() != item.getSeater() && item.getSeater() == 2) {
+                                rooms.add(item.getRoom_No());
+                            }
                         }
                     }
                 }
-            }
-            else if (Seater.get(position).equals("Double Bed"))
-            {
-                for (Room_LIst_Item item:roomsList)
-                {
-                    if (item.getCategory().equals("Fan"))
-                    {
-                        if (item.getAlloted() != item.getSeater() && item.getSeater() == 2)
-                        {
-                            rooms.add(item.getRoom_No());
+                break;
+            case "Duct":
+                if (Seater.get(position).equals("Single Bed")) {
+                    for (Room_LIst_Item item : roomsList) {
+                        if (item.getCategory().equals("Duct")) {
+                            if (item.getAlloted() != item.getSeater() && item.getSeater() == 1) {
+                                rooms.add(item.getRoom_No());
+                            }
+                        }
+                    }
+                } else if (Seater.get(position).equals("Double Bed")) {
+                    for (Room_LIst_Item item : roomsList) {
+                        if (item.getCategory().equals("Duct")) {
+                            if (item.getAlloted() != item.getSeater() && item.getSeater() == 2) {
+                                rooms.add(item.getRoom_No());
+                            }
                         }
                     }
                 }
-            }
-        }
-        else if (Category.get(position).equals("Duct"))
-        {
-            if (Seater.get(position).equals("Single Bed"))
-            {
-                for (Room_LIst_Item item:roomsList)
-                {
-                    if (item.getCategory().equals("Duct"))
-                    {
-                        if (item.getAlloted() != item.getSeater() && item.getSeater() == 1)
-                        {
-                            rooms.add(item.getRoom_No());
+                break;
+            case "AC":
+                if (Seater.get(position).equals("Single Bed")) {
+                    for (Room_LIst_Item item : roomsList) {
+                        if (item.getCategory().equals("AC")) {
+                            if (item.getAlloted() != item.getSeater() && item.getSeater() == 1) {
+                                rooms.add(item.getRoom_No());
+                            }
+                        }
+                    }
+                } else if (Seater.get(position).equals("Double Bed")) {
+                    for (Room_LIst_Item item : roomsList) {
+                        if (item.getCategory().equals("AC")) {
+                            if (item.getAlloted() != item.getSeater() && item.getSeater() == 2) {
+                                rooms.add(item.getRoom_No());
+                            }
                         }
                     }
                 }
-            }
-            else if (Seater.get(position).equals("Double Bed"))
-            {
-                for (Room_LIst_Item item:roomsList)
-                {
-                    if (item.getCategory().equals("Duct"))
-                    {
-                        if (item.getAlloted() != item.getSeater() && item.getSeater() == 2)
-                        {
-                            rooms.add(item.getRoom_No());
-                        }
-                    }
-                }
-            }
-        }
-        else if (Category.get(position).equals("AC"))
-        {
-            if (Seater.get(position).equals("Single Bed"))
-            {
-                for (Room_LIst_Item item:roomsList)
-                {
-                    if (item.getCategory().equals("AC"))
-                    {
-                        if (item.getAlloted() != item.getSeater() && item.getSeater() == 1)
-                        {
-                            rooms.add(item.getRoom_No());
-                        }
-                    }
-                }
-            }
-            else if (Seater.get(position).equals("Double Bed"))
-            {
-                for (Room_LIst_Item item:roomsList)
-                {
-                    if (item.getCategory().equals("AC"))
-                    {
-                        if (item.getAlloted() != item.getSeater() && item.getSeater() == 2)
-                        {
-                            rooms.add(item.getRoom_No());
-                        }
-                    }
-                }
-            }
+                break;
         }
 
         final Spinner spinner = convertView.findViewById(R.id.rooms);
@@ -179,10 +157,7 @@ public class New_Student_Adapter extends BaseAdapter {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position != 0)
-                {
-                    spinnerItem[0] = position;
-                }
+                spinnerItem[0] = position;
             }
 
             @Override
@@ -195,7 +170,6 @@ public class New_Student_Adapter extends BaseAdapter {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int a;
                 //rooms.get(spinnerItem[0]);
                 if (spinnerItem[0] != 0)
                 {
@@ -204,13 +178,44 @@ public class New_Student_Adapter extends BaseAdapter {
                     Year.remove(position);
                     Category.remove(position);
                     Seater.remove(position);
-                    Room_LIst_Item room_lIst_item = roomsList.get(spinnerItem[0]-1);
-                    room_lIst_item.setAlloted(room_lIst_item.getAlloted()+1);
+
+                    int pos=0;
+
+                    for (Room_LIst_Item rooms:roomsList) {
+                        if (rooms.getRoom_No().equals(spinner.getSelectedItem()))
+                        {
+                            rooms.setAlloted(rooms.getAlloted()+1);
+                            roomsList.set(pos, rooms);
+                            db.collection("Rooms")
+                                    .document(spinner.getSelectedItem().toString())
+                                    .update("Alloted", rooms.getAlloted())
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            Log.d("Room Detail", "Room Detail updated");
+                                        }
+                                    });
+                        }
+                        pos++;
+                    }
+
                     //roomsList.remove(spinnerItem[0]);
                     //roomsList.add(spinnerItem[0], room_lIst_item);
-                    roomsList.set(spinnerItem[0]-1, room_lIst_item);
-                    New_Student.setGridViewAdapter(vw,context,Name, Branch, Year, Category, Seater, roomsList);
 
+                    
+
+
+                    db.collection("Students")
+                            .document(docId.get(position))
+                            .update("Approved", 1)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.d("Student Detail", "Student Approved Successful");
+                                    New_Student.setGridViewAdapter(vw,context,Name, Branch, Year, Category, Seater, docId,roomsList);
+                                    docId.remove(position);
+                                }
+                            });
 
                 }
                 else
