@@ -1,6 +1,7 @@
 package com.example.myapplication.Warden;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -37,7 +38,8 @@ ArrayList<String> Seater=new ArrayList<>();
 public static ArrayList<Room_LIst_Item> roomsList;
 
     private FirebaseFirestore db=FirebaseFirestore.getInstance();
-    GridView gridView;
+    private GridView gridView;
+
     public New_Student() {
     }
 
@@ -45,7 +47,7 @@ public static ArrayList<Room_LIst_Item> roomsList;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v=inflater.inflate(R.layout.fragment_new__student, container, false);
+        final View v=inflater.inflate(R.layout.fragment_new__student, container, false);
         gridView=v.findViewById(R.id.dashgrid);
         db.collection("Students")
                 .whereEqualTo("Approved",0)
@@ -63,7 +65,7 @@ public static ArrayList<Room_LIst_Item> roomsList;
                                 Log.d("item",Name.toString()+Branch.toString()+Year.toString()+Category.toString()+Seater.toString());
                                 /*Log.d("Item",document.getId()+document.getData());
                                 Log.d("______","______");*/
-                                New_Student_Adapter adapter=new New_Student_Adapter(getActivity().getApplicationContext(),Name,Branch,Year,Category,Seater, roomsList);
+                                New_Student_Adapter adapter=new New_Student_Adapter(v,getActivity().getApplicationContext(),Name,Branch,Year,Category,Seater, roomsList);
                                 gridView.setAdapter(adapter);
                             }
                         } else {
@@ -73,6 +75,15 @@ public static ArrayList<Room_LIst_Item> roomsList;
                 });
         Log.d("Completed","__");
         return v;
+    }
+
+    public static void setGridViewAdapter(View v, Context context, ArrayList<String> name, ArrayList<String> branch, ArrayList<String> year, ArrayList<String> category, ArrayList<String> seater, ArrayList<Room_LIst_Item> roomsList)
+    {
+        GridView gV = v.findViewById(R.id.dashgrid);
+
+        New_Student_Adapter adapter = new New_Student_Adapter(v, context, name, branch, year, category, seater, roomsList);
+        gV.setAdapter(adapter);
+
     }
 
 }
