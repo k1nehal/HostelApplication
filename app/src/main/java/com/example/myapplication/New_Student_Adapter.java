@@ -1,7 +1,6 @@
 package com.example.myapplication;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +9,10 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.myapplication.Warden.New_Student;
 
 import java.util.ArrayList;
 
@@ -25,8 +26,10 @@ public class New_Student_Adapter extends BaseAdapter {
     private ArrayList<String> Category;
     private ArrayList<String> Seater;
     private ArrayList<Room_LIst_Item> roomsList;
+    private View vw;
 
-    public New_Student_Adapter(Context context, ArrayList<String> name, ArrayList<String> branch, ArrayList<String> year, ArrayList<String> category, ArrayList<String> seater, ArrayList<Room_LIst_Item> roomsList) {
+    public New_Student_Adapter(View v, Context context, ArrayList<String> name, ArrayList<String> branch, ArrayList<String> year, ArrayList<String> category, ArrayList<String> seater, ArrayList<Room_LIst_Item> roomsList) {
+        vw = v;
         this.context = context;
         Name = name;
         Branch = branch;
@@ -77,7 +80,7 @@ public class New_Student_Adapter extends BaseAdapter {
         textView3.setText(Category.get(position));
         textView4.setText(Seater.get(position));
 
-        ArrayList<String> rooms = new ArrayList<>();
+        final ArrayList<String> rooms = new ArrayList<>();
         rooms.add("Select Rooms");
 
         if (Category.get(position).equals("Fan"))
@@ -168,14 +171,18 @@ public class New_Student_Adapter extends BaseAdapter {
             }
         }
 
-        Spinner spinner = convertView.findViewById(R.id.rooms);
+        final Spinner spinner = convertView.findViewById(R.id.rooms);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, R.layout.room_spinner_layout, rooms);
         spinner.setAdapter(adapter);
 
+        final int[] spinnerItem = new int[1];
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                if (position != 0)
+                {
+                    spinnerItem[0] = position;
+                }
             }
 
             @Override
@@ -188,11 +195,26 @@ public class New_Student_Adapter extends BaseAdapter {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent=new Intent(v.getContext(),Approve.class);
-//                intent.putExtra("Name",Name.get(position));
-//                intent.putExtra("Category",Category.get(position));
-//                intent.putExtra("Seater",Seater.get(position));
-//                v.getContext().startActivity(intent);
+                int a;
+                //rooms.get(spinnerItem[0]);
+                Name.remove(position);
+                Branch.remove(position);
+                Year.remove(position);
+                Category.remove(position);
+                Seater.remove(position);
+                if (spinnerItem[0] != 0)
+                {
+                    Room_LIst_Item room_lIst_item = roomsList.get(spinnerItem[0]-1);
+                    room_lIst_item.setAlloted(room_lIst_item.getAlloted()+1);
+                    //roomsList.remove(spinnerItem[0]);
+                    //roomsList.add(spinnerItem[0], room_lIst_item);
+                    roomsList.set(spinnerItem[0]-1, room_lIst_item);
+                    New_Student.setGridViewAdapter(vw,context,Name, Branch, Year, Category, Seater, roomsList);
+                }
+                else
+                {
+                    Toast.makeText(context, "Please select Room No.", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
