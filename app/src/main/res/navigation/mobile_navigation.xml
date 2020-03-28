@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/nav_send"
-        android:name="com.example.myapplication.ui.send.SendFragment"
+        android:name="com.example.myapplication.ui.NavigationItems.SendFragment"
         android:label="@string/menu_send"
         tools:layout="@layout/fragment_send" />
 </navigation>

@@ -14,6 +14,7 @@ import com.example.myapplication.Student.Leaves;
 import com.example.myapplication.Student.Outings;
 import com.example.myapplication.Student.Timings;
 import com.example.myapplication.Warden.New_Student;
+import com.example.myapplication.Warden.OutingRequest;
 import com.example.myapplication.Warden.Rounds;
 import com.example.myapplication.Warden.UpdateEvents;
 
@@ -71,6 +72,9 @@ TextView textView;
                 break;
             case "New Event":
                 fragment=new UpdateEvents();
+                break;
+            case "Outing Request":
+                fragment=new OutingRequest();
                 break;
             default:
                 startActivity(new Intent(getApplicationContext(),Main2Activity.class));

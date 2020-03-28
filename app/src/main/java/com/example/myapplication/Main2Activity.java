@@ -35,7 +35,7 @@ public class Main2Activity extends AppCompatActivity {
         sharedPreferences=getSharedPreferences("MyHostel",MODE_PRIVATE);
         setContentView(R.layout.activity_main2);
         String shared_email=sharedPreferences.getString("Email", "");
-        firebaseFirestore.collection("students")
+        firebaseFirestore.collection("Students")
                 .whereEqualTo("Personal Email",shared_email)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -54,22 +54,6 @@ public class Main2Activity extends AppCompatActivity {
                         }
                     }
                 });
-   /*     DocumentReference user = firebaseFirestore.collection("Students").document(shared_email);
-        user.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task< DocumentSnapshot > task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot doc = task.getResult();
-                    status= Integer.parseInt(doc.get("Approved").toString());
-                    SharedPreferences.Editor editor=sharedPreferences.edit();
-                    editor.putString("Stu_FName",doc.getString("First Name"));
-                    editor.putString("Stu_LName",doc.getString("Last Name"));
-                    editor.putString("Stu_Mobile", String.valueOf(doc.getLong("Mobile")));
-                    editor.commit();
-
-                }
-            }
-        });*/
         Log.d("______MAiIN","_________-");
         Log.d("_____",status+"");
 

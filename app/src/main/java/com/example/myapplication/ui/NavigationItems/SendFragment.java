@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.send;
+package com.example.myapplication.ui.NavigationItems;
 
 import android.content.Context;
 import android.content.Intent;

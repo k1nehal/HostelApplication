@@ -62,9 +62,6 @@ public static ArrayList<Room_LIst_Item> roomsList;
                                 Year.add(document.getString("Year"));
                                 Category.add(document.getString("Room Category"));
                                 Seater.add(document.getString("Seater"));
-                                Log.d("item",Name.toString()+Branch.toString()+Year.toString()+Category.toString()+Seater.toString());
-                                /*Log.d("Item",document.getId()+document.getData());
-                                Log.d("______","______");*/
                                 New_Student_Adapter adapter=new New_Student_Adapter(v,getActivity().getApplicationContext(),Name,Branch,Year,Category,Seater, roomsList);
                                 gridView.setAdapter(adapter);
                             }
@@ -73,7 +70,6 @@ public static ArrayList<Room_LIst_Item> roomsList;
                         }
                     }
                 });
-        Log.d("Completed","__");
         return v;
     }
 

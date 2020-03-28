@@ -210,6 +210,8 @@ public class New_Student_Adapter extends BaseAdapter {
                     //roomsList.add(spinnerItem[0], room_lIst_item);
                     roomsList.set(spinnerItem[0]-1, room_lIst_item);
                     New_Student.setGridViewAdapter(vw,context,Name, Branch, Year, Category, Seater, roomsList);
+
+
                 }
                 else
                 {
