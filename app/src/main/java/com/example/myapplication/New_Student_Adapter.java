@@ -16,8 +16,11 @@ import android.widget.Toast;
 import com.example.myapplication.Warden.New_Student;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class New_Student_Adapter extends BaseAdapter {
 
@@ -193,6 +196,17 @@ public class New_Student_Adapter extends BaseAdapter {
                                         @Override
                                         public void onSuccess(Void aVoid) {
                                             Log.d("Room Detail", "Room Detail updated");
+                                        }
+                                    });
+                            Map<String, Object> room_No = new HashMap<>();
+                            room_No.put("Room No", spinner.getSelectedItem());
+                            db.collection("Students")
+                                    .document(docId.get(position))
+                                    .set(room_No, SetOptions.merge())
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            Log.d("Student Room Detail", "Room No added to student");
                                         }
                                     });
                         }
