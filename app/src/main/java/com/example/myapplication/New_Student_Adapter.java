@@ -227,7 +227,6 @@ public class New_Student_Adapter extends BaseAdapter {
                                 }
                             });
 
-
                     db.collection("Students")
                             .document(docId.get(position))
                             .update("Approved", 1)
@@ -238,8 +237,6 @@ public class New_Student_Adapter extends BaseAdapter {
                                     New_Student.setGridViewAdapter(vw,context,Name, Branch, Year, Category, Seater, docId,roomsList);
                                 }
                             });
-
-
 
                 }
                 else
