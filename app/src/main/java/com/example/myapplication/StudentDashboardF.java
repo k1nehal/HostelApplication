@@ -18,7 +18,7 @@ import androidx.fragment.app.Fragment;
 public class StudentDashboardF extends Fragment {
     GridView gridView;
     String[] itemName={"Complaint","Outings","Leaves","Contacts","Timings","Events"};
-    int[]  itemImage={R.drawable.file,R.drawable.gps,R.drawable.pin,R.drawable.avatar,R.drawable.time,R.drawable.calendar};
+    int[]  itemImage={R.drawable.logo,R.drawable.gps,R.drawable.pin,R.drawable.avatar,R.drawable.time,R.drawable.calendar};
 
 
     public StudentDashboardF() {
