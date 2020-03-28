@@ -63,7 +63,6 @@ public class New_Student_Adapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        View v=convertView;
 
 
         if(layoutInflater==null)
