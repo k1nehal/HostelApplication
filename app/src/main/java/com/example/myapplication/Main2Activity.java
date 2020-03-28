@@ -49,6 +49,9 @@ public class Main2Activity extends AppCompatActivity {
                                editor.putString("Stu_FName", doc.getString("First Name"));
                                editor.putString("Stu_LName", doc.getString("Last Name"));
                                editor.putString("Stu_Mobile", String.valueOf(doc.getLong("Mobile")));
+                               editor.putString("M_Mobile",String.valueOf(doc.getLong("Mother's Mobile")));
+                               editor.putString("F_Mobile",String.valueOf(doc.getLong("Father's Mobile")));
+                               editor.putString("ID",doc.getId());
                                editor.commit();
                            }
                         }

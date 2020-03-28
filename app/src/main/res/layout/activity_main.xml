@@ -95,6 +95,19 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+            <ProgressBar
+                android:id="@+id/p_bar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="14dp"
+                android:layout_marginRight="14dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toStartOf="@+id/loginB"
+                android:layout_toLeftOf="@+id/loginB"
+                android:visibility="gone"/>
+
             <TextView
                 android:id="@+id/loginB"
                 android:layout_width="wrap_content"

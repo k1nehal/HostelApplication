@@ -4,17 +4,25 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_my_profile"
+            android:icon="@drawable/ic_action_email"
+            android:title="My Profile"/>
 
         <item
             android:id="@+id/nav_dash"
             android:icon="@drawable/dashboard"
             android:title="Dashboard"/>
 
+        <item
+            android:id="@+id/nav_about_us"
+            android:icon="@drawable/abour"
+            android:title="About Us"/>
 
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Logout" />
+        <item
+            android:id="@+id/nav_send"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Logout" />
     </group>
 
 </menu>

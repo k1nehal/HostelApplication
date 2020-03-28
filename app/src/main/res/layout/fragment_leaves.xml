@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Stu_Basic_Details">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,12 +17,13 @@
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:hint="Report Date"
-
+            android:editable="false"
+            android:inputType="date"
             android:layout_marginTop="20dp"
             android:ems="10"
             android:drawableLeft="@drawable/ic_action_email"
             android:background="@drawable/edittext"
-            android:textSize="20sp"
+            android:textSize="15sp"
             />
         <EditText
             android:id="@+id/R_Time"
@@ -52,27 +52,18 @@
             android:textSize="20sp"
             />
 
-        <EditText
+        <Spinner
             android:id="@+id/Mobile"
             android:layout_width="320dp"
             android:layout_height="40dp"
-            android:hint="Parent's Mobile"
             android:layout_below="@+id/Reason"
             android:layout_marginTop="20dp"
             android:ems="10"
-            android:drawableLeft="@drawable/ic_action_email"
-            android:background="@drawable/edittext"
+            android:background="@drawable/spinner_back"
             android:textSize="20sp"
+            android:dropDownWidth="match_parent"
             />
-            <Spinner
-                android:layout_width="320dp"
-                android:layout_height="40dp"
-                android:background="@drawable/spinner_back"
-                android:layout_below="@+id/Address"
-                android:layout_marginTop="25dp"
-                android:id="@+id/Numbers"/>
-
-        <EditText
+         <EditText
             android:id="@+id/Address"
             android:layout_width="320dp"
             android:layout_height="wrap_content"
@@ -88,10 +79,10 @@
             android:drawableLeft="@drawable/ic_action_email"
             />
         <androidx.cardview.widget.CardView
-            android:id="@+id/cv"
+            android:id="@+id/Approval"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:layout_below="@+id/Numbers"
+            android:layout_below="@+id/Address"
             android:layout_marginTop="50dp"
             app:cardBackgroundColor="@color/cardbackground"
             app:cardCornerRadius="25dp"
@@ -101,7 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/Approval"
+                    android:id="@+id/textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Send for Approval"

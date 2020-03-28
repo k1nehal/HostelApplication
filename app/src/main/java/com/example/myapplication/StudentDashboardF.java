@@ -11,14 +11,10 @@ import android.widget.GridView;
 
 import androidx.fragment.app.Fragment;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class StudentDashboardF extends Fragment {
     GridView gridView;
     String[] itemName={"Complaint","Outings","Leaves","Contacts","Timings","Events"};
-    int[]  itemImage={R.drawable.logo,R.drawable.gps,R.drawable.pin,R.drawable.avatar,R.drawable.time,R.drawable.calendar};
+    int[]  itemImage={R.drawable.com,R.drawable.out,R.drawable.leave,R.drawable.cn,R.drawable.tt,R.drawable.cal};
 
 
     public StudentDashboardF() {

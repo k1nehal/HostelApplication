@@ -13,8 +13,11 @@ import com.example.myapplication.Student.Events;
 import com.example.myapplication.Student.Leaves;
 import com.example.myapplication.Student.Outings;
 import com.example.myapplication.Student.Timings;
+import com.example.myapplication.Warden.Complaints;
+import com.example.myapplication.Warden.LeaveRequests;
 import com.example.myapplication.Warden.New_Student;
 import com.example.myapplication.Warden.OutingRequest;
+import com.example.myapplication.Warden.Records;
 import com.example.myapplication.Warden.Rounds;
 import com.example.myapplication.Warden.UpdateEvents;
 
@@ -43,9 +46,6 @@ TextView textView;
 
         switch(title)
         {
-            case "Night Attendance":
-                fragment=new Complaint();
-                break;
             case "Complaint":
                 fragment=new Complaint();
                 break;
@@ -64,17 +64,29 @@ TextView textView;
             case "Events":
                 fragment=new Events();
                 break;
+
+
+
             case "New Students":
                 fragment=new New_Student();
                 break;
             case "Round Records":
                 fragment=new Rounds();
                 break;
+            case "Leave Requests":
+                fragment=new LeaveRequests();
+                break;
+            case "Outing Requests":
+                fragment=new OutingRequest();
+                break;
             case "New Event":
                 fragment=new UpdateEvents();
                 break;
-            case "Outing Request":
-                fragment=new OutingRequest();
+            case "Complaints":
+                fragment=new Complaints();
+                break;
+            case "Records":
+                fragment=new Records();
                 break;
             default:
                 startActivity(new Intent(getApplicationContext(),Main2Activity.class));

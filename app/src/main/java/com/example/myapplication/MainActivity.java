@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,11 +23,11 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 
 
 public class MainActivity extends Activity {
@@ -36,6 +37,8 @@ TextView register;
 EditText email,password;
 FirebaseAuth firebaseAuth;
 TextView forgot;
+    private ProgressBar progressBar;
+    private TextView textView ;
 SharedPreferences sharedPreferences;
     public static final String MyPreference="MyHostel";
     public static final String Email="Email";
@@ -51,7 +54,8 @@ SharedPreferences sharedPreferences;
         setContentView(R.layout.activity_main);
 
         forgot = findViewById(R.id.forgot);
-
+        progressBar=findViewById(R.id.p_bar);
+        textView=findViewById(R.id.loginB);
 
         firebaseAuth = FirebaseAuth.getInstance();
         try {
@@ -67,6 +71,7 @@ SharedPreferences sharedPreferences;
         forgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 db.collection("Rooms")
                         .get()
                         .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -118,7 +123,8 @@ SharedPreferences sharedPreferences;
                     return;
                 }
 
-
+                progressBar.setVisibility(View.VISIBLE);
+                textView.setText("Please Wait...");
 
                 firebaseAuth.signInWithEmailAndPassword(u_email,u_pass)
                         .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
