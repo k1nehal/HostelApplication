@@ -89,92 +89,64 @@ public class New_Student_Adapter extends BaseAdapter {
         final ArrayList<String> rooms = new ArrayList<>();
         rooms.add("Select Rooms");
 
-        if (Category.get(position).equals("Fan"))
-        {
-            if (Seater.get(position).equals("Single Bed"))
-            {
-                for (Room_LIst_Item item:roomsList)
-                {
-                    if (item.getCategory().equals("Fan"))
-                    {
-                        if (item.getAlloted() != item.getSeater() && item.getSeater() == 1)
-                        {
-                            rooms.add(item.getRoom_No());
+        switch (Category.get(position)) {
+            case "Fan":
+                if (Seater.get(position).equals("Single Bed")) {
+                    for (Room_LIst_Item item : roomsList) {
+                        if (item.getCategory().equals("Fan")) {
+                            if (item.getAlloted() != item.getSeater() && item.getSeater() == 1) {
+                                rooms.add(item.getRoom_No());
+                            }
+                        }
+                    }
+                } else if (Seater.get(position).equals("Double Bed")) {
+                    for (Room_LIst_Item item : roomsList) {
+                        if (item.getCategory().equals("Fan")) {
+                            if (item.getAlloted() != item.getSeater() && item.getSeater() == 2) {
+                                rooms.add(item.getRoom_No());
+                            }
                         }
                     }
                 }
-            }
-            else if (Seater.get(position).equals("Double Bed"))
-            {
-                for (Room_LIst_Item item:roomsList)
-                {
-                    if (item.getCategory().equals("Fan"))
-                    {
-                        if (item.getAlloted() != item.getSeater() && item.getSeater() == 2)
-                        {
-                            rooms.add(item.getRoom_No());
+                break;
+            case "Duct":
+                if (Seater.get(position).equals("Single Bed")) {
+                    for (Room_LIst_Item item : roomsList) {
+                        if (item.getCategory().equals("Duct")) {
+                            if (item.getAlloted() != item.getSeater() && item.getSeater() == 1) {
+                                rooms.add(item.getRoom_No());
+                            }
+                        }
+                    }
+                } else if (Seater.get(position).equals("Double Bed")) {
+                    for (Room_LIst_Item item : roomsList) {
+                        if (item.getCategory().equals("Duct")) {
+                            if (item.getAlloted() != item.getSeater() && item.getSeater() == 2) {
+                                rooms.add(item.getRoom_No());
+                            }
                         }
                     }
                 }
-            }
-        }
-        else if (Category.get(position).equals("Duct"))
-        {
-            if (Seater.get(position).equals("Single Bed"))
-            {
-                for (Room_LIst_Item item:roomsList)
-                {
-                    if (item.getCategory().equals("Duct"))
-                    {
-                        if (item.getAlloted() != item.getSeater() && item.getSeater() == 1)
-                        {
-                            rooms.add(item.getRoom_No());
+                break;
+            case "AC":
+                if (Seater.get(position).equals("Single Bed")) {
+                    for (Room_LIst_Item item : roomsList) {
+                        if (item.getCategory().equals("AC")) {
+                            if (item.getAlloted() != item.getSeater() && item.getSeater() == 1) {
+                                rooms.add(item.getRoom_No());
+                            }
+                        }
+                    }
+                } else if (Seater.get(position).equals("Double Bed")) {
+                    for (Room_LIst_Item item : roomsList) {
+                        if (item.getCategory().equals("AC")) {
+                            if (item.getAlloted() != item.getSeater() && item.getSeater() == 2) {
+                                rooms.add(item.getRoom_No());
+                            }
                         }
                     }
                 }
-            }
-            else if (Seater.get(position).equals("Double Bed"))
-            {
-                for (Room_LIst_Item item:roomsList)
-                {
-                    if (item.getCategory().equals("Duct"))
-                    {
-                        if (item.getAlloted() != item.getSeater() && item.getSeater() == 2)
-                        {
-                            rooms.add(item.getRoom_No());
-                        }
-                    }
-                }
-            }
-        }
-        else if (Category.get(position).equals("AC"))
-        {
-            if (Seater.get(position).equals("Single Bed"))
-            {
-                for (Room_LIst_Item item:roomsList)
-                {
-                    if (item.getCategory().equals("AC"))
-                    {
-                        if (item.getAlloted() != item.getSeater() && item.getSeater() == 1)
-                        {
-                            rooms.add(item.getRoom_No());
-                        }
-                    }
-                }
-            }
-            else if (Seater.get(position).equals("Double Bed"))
-            {
-                for (Room_LIst_Item item:roomsList)
-                {
-                    if (item.getCategory().equals("AC"))
-                    {
-                        if (item.getAlloted() != item.getSeater() && item.getSeater() == 2)
-                        {
-                            rooms.add(item.getRoom_No());
-                        }
-                    }
-                }
-            }
+                break;
         }
 
         final Spinner spinner = convertView.findViewById(R.id.rooms);
@@ -201,7 +173,6 @@ public class New_Student_Adapter extends BaseAdapter {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int a;
                 //rooms.get(spinnerItem[0]);
                 if (spinnerItem[0] != 0)
                 {
