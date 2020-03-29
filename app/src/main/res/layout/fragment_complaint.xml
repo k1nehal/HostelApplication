@@ -17,7 +17,6 @@
             style="@style/Widget.AppCompat.Spinner.DropDown"
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:layout_below="@+id/Rl"
             android:layout_centerHorizontal="true"
             android:background="@drawable/spinner_back"
             android:prompt="@string/app_name"

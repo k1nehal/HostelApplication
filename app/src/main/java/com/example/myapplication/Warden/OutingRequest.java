@@ -27,9 +27,7 @@ import androidx.fragment.app.Fragment;
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class OutingRequest extends Fragment {
 ArrayList<String> name=new ArrayList<>();
 ArrayList<String>  purpose=new ArrayList<>();

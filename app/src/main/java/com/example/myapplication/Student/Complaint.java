@@ -104,12 +104,12 @@ public class Complaint extends Fragment {
 //                Place=sub_cat.getSelectedItem().toString();
                 Comments=EComments.getText().toString();
                 Map<String,Object> note=new HashMap<>();
-                Name=sharedPreferences.getString("Stu_FName","")+sharedPreferences.getString("Stu_LName","");
+                Name=sharedPreferences.getString("Stu_FName","")+" "+sharedPreferences.getString("Stu_LName","");
                 Log.d("Msg","_______________");
                 Log.d("NAme",Name);
                 note.put("Name",Name);
                 note.put("Mobile", sharedPreferences.getString("Stu_Mobile", ""));
-                note.put("Room",sharedPreferences.getString("Stu_Room",""));
+                note.put("Room",sharedPreferences.getString("Room",""));
                 note.put("Category",category_s.getSelectedItem().toString());
                 note.put("Date",dateString);
                 if (sub_cat.isEnabled()==true) {

@@ -18,7 +18,6 @@
             android:layout_height="40dp"
             android:paddingLeft="2dp"
             android:hint="Purpose"
-            android:layout_below="@+id/Rl"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:ems="10"

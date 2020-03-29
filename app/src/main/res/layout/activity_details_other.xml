@@ -151,7 +151,6 @@
                     android:layout_marginBottom="10dp"
                     android:layout_centerHorizontal="true"
                     android:layout_toStartOf="@+id/user_reg1"
-                    android:layout_toLeftOf="@+id/user_reg1"
                     android:visibility="gone"/>
                 <TextView
                     android:id="@+id/textview"
